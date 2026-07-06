@@ -3,8 +3,8 @@ const qrcode = require('qrcode-terminal');
 const pino = require('pino');
 const { GoogleGenAI } = require('@google/genai');
 
-// Aapki verify shuda active Gemini API key
-const MY_GEMINI_KEY = "AIzaSyBJdr5G9rd0VKA9YEajkXaAH8BmyxNKR6E"; 
+// 🔐 Secure Way: Ab key direct code me nahi balki Render ke dashboard se load hogi
+const MY_GEMINI_KEY = process.env.GEMINI_API_KEY; 
 
 const ai = new GoogleGenAI({ apiKey: MY_GEMINI_KEY });
 
@@ -53,7 +53,6 @@ async function connectToWhatsApp() {
                                 model: 'gemini-2.5-flash',
                                 contents: text,
                                 config: {
-                                    // 🚀 Is tool ki madad se bot live weather and data access karega
                                     tools: [{ googleSearch: {} }],
                                     systemInstruction: "You are a professional, smart human AI employee for a business. Reply naturally, intelligently, and dynamically to the user's message. Use Google Search tool automatically when asked about live information like weather, time, dates, or current info. Never output raw JSON. Always match the user's tone and reply in natural, friendly Roman Urdu or English. Keep responses concise like a real person chatting on WhatsApp."
                                 }
