@@ -1,0 +1,16 @@
+{
+  "name": "OpenClaw",
+  "mode": "operator",
+  "runtime": {
+    "sandbox": "docker",
+    "image": "alpine:3.20"
+  },
+  "planning": {
+    "enabled": true,
+    "maxSteps": 4
+  },
+  "security": {
+    "networkMode": "none",
+    "allowShell": false
+  }
+}
